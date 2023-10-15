@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -25,16 +26,22 @@ class MyApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                  hintText: "Email",
-                  labelText: "Email",
-                  hintStyle: TextStyle(fontSize: 14,color: Colors.red),
-                ),
-              ),
-            )
+             Expanded(
+               child: ListView.builder(
+                  itemCount: 100,
+                  itemBuilder: (context , index){
+                    return
+                    ListTile(
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage("https://images.pexels.com/photos/15002293/pexels-photo-15002293/free-photo-of-corridor-in-a-museum.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"),
+                      ),
+                      title: Text("asif taj"),
+                      subtitle: Text("subscribe my channel"),
+                      trailing: Text('3:51 PM'),
+                    );
+            }),
+             ),
+          
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
